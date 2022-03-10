@@ -5,5 +5,5 @@ const PersonalDetailsSchema = require('../models/personalDetailsSchema');
 //CRUD operations for Personal Details
 
 app.post('/personaldetails', (req, res) => {
-  new PersonalDetailsSchema();
+
 });
