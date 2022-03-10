@@ -79,7 +79,7 @@ const EducationComponent = () => {
 
  
   return (
-    <Grid container justify="center" spacing={3}>
+    <Grid container justify="center" spacing={1}>
       <Grid item md={6}>
         <Card className={classes.padding}>
           <CardHeader title="Education Qualification"></CardHeader>

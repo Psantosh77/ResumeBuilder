@@ -1,23 +1,49 @@
-import React from 'react'
-import BasicDetails from '../BasicDetails'
-import Education from '../Education'
-import InternShip from '../internship'
+import React from "react";
+import {
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+} from "@material-ui/core";
+import { ExpandMore } from "@material-ui/icons";
 
-import Training from '../Project'
+import BasicDetails from "../BasicDetails";
+import Education from "../Education";
+import InternShip from "../internship";
 
-
+import Training from "../Project";
 
 const ResumeComponent = () => {
   return (
     <div>
-       
-        <BasicDetails/>
-        <Education/>
-        <Training/>
-        <InternShip/>
-        
-    </div>
-  )
-}
+      <Accordion>
+        <AccordionSummary expandIcon={<ExpandMore />}>
+          Basic Details
+        </AccordionSummary>
 
-export default ResumeComponent
+        <AccordionDetails>
+          <BasicDetails />
+        </AccordionDetails>
+      </Accordion>
+
+      <Accordion>
+        <AccordionSummary expandIcon={<ExpandMore />}>
+          Educational Qulification
+        </AccordionSummary>
+        <AccordionDetails>
+          <Education />
+        </AccordionDetails>
+      </Accordion>
+
+      <Accordion>
+        <AccordionSummary expandIcon={<ExpandMore />}>Project</AccordionSummary>
+        <AccordionDetails>
+          <Training />
+        </AccordionDetails>
+      </Accordion>
+
+      <InternShip />
+    </div>
+  );
+};
+
+export default ResumeComponent;

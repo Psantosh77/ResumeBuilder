@@ -130,7 +130,7 @@ const BasicDetailsComponent = () => {
           </Card>
         </Grid>
       </Grid>
-      )
+      
     </>
   );
 };
