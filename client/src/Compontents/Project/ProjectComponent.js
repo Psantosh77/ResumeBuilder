@@ -12,12 +12,7 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { TextField } from "formik-material-ui";
 
-import Table from "@mui/material/Table";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
 
 const useStyle = makeStyles((theme) => ({
   padding: {
@@ -42,8 +37,8 @@ const initialValues = {
 //validation schema
 let validationSchema = Yup.object().shape({
   projectName: Yup.string().required("Required"),
-  from: Yup.number().required("Required"),
-  to: Yup.number().required("Required"),
+  from: Yup.date().required("Required"),
+  to: Yup.number(),
   mentor: Yup.string().required("Enter Your Mentor Name"),
   teamSize: Yup.number().required("Required"),
   skill: Yup.string().required("Required"),
@@ -65,11 +60,11 @@ let validationSchema = Yup.object().shape({
 
 const ProjectComponent = () => {
   const classes = useStyle();
-  const [val, SetVal] = useState();
+  const [val, SetVal] = useState([]);
+
   const onSubmit = (values) => {
     console.log(values);
     SetVal(values);
-    console.log(val.projectName);
   };
 
   return (
@@ -188,57 +183,34 @@ const ProjectComponent = () => {
         </Grid>
       </Grid>
 
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
-          <TableHead>
-            <TableRow>
-              <TableCell align="left">Project Name</TableCell>
-              <TableCell align="left">{val.projectName}</TableCell>
-            </TableRow>
+      <Card sx={{ minWidth: 275 }}>
+        <CardContent>
+          <Typography  component="div">
+            Project Name :{val.projectName}
+          </Typography>
 
-            <TableRow
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell align="left">Project start From</TableCell>
-              <TableCell align="left">{val.from}</TableCell>
-            </TableRow>
+          <Typography  component="div">
+            Project Started From :{val.from}
+          </Typography>
+          <Typography  component="div">
+            Project Completed on :{val.to}
+          </Typography>
+          <Typography  component="div">
+            Mentor :{val.mentor}
+          </Typography>
+          <Typography  component="div">
+            Team Size :{val.teamSize}
+          </Typography>
+          <Typography  component="div">
+            Key Skill :{val.skill}
+          </Typography>
 
-            <TableRow
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell align="left">Project Completed on </TableCell>
-              <TableCell align="left">{val.to}</TableCell>
-            </TableRow>
-
-            <TableRow
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell align="left">Mentor</TableCell>
-              <TableCell align="left">{val.mentor}</TableCell>
-            </TableRow>
-            <TableRow
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell align="left">Team Size</TableCell>
-              <TableCell align="left">{val.teamSize}</TableCell>
-            </TableRow>
-            <TableRow
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell align="left">Key Skill</TableCell>
-              <TableCell align="left">{val.skill}</TableCell>
-            </TableRow>
-
-            <TableRow
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell align="left">Key Skill</TableCell>
-              <TableCell align="left">{val.skill}</TableCell>
-            </TableRow>
-
-            </TableHead>
-        </Table>
-      </TableContainer>
+          <Typography  component="div">
+            Description :{val.description}
+          </Typography>
+        </CardContent>
+        
+      </Card>
     </>
   );
 };

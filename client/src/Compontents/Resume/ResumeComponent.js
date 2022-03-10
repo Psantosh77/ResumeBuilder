@@ -15,7 +15,7 @@ import Training from "../Project";
 const ResumeComponent = () => {
   return (
     <div>
-      <Accordion>
+      <Accordion >
         <AccordionSummary expandIcon={<ExpandMore />}>
           Basic Details
         </AccordionSummary>
@@ -41,7 +41,13 @@ const ResumeComponent = () => {
         </AccordionDetails>
       </Accordion>
 
-      <InternShip />
+      
+      <Accordion>
+        <AccordionSummary expandIcon={<ExpandMore />}>Internship And Training</AccordionSummary>
+        <AccordionDetails>
+          <InternShip />
+        </AccordionDetails>
+      </Accordion>
     </div>
   );
 };
