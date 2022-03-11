@@ -1,5 +1,5 @@
 const express = require("express");
-const trouter =  express.Router()
+const tranningrouter =  express.Router()
 const Tranning = require("../models/tranningSchema")
 
 
@@ -9,7 +9,7 @@ app.use(express.json());
 
 // post data router
 
-trouter.post("/tpost", async(req,res)=>{
+tranningrouter.post("/tpost", async(req,res)=>{
 
     const {tranning}= req.body
 try{
@@ -30,7 +30,7 @@ res.send(tranningpost)
 
 // get data router
 
-trouter.get("/tget", async(req,res)=>{
+tranningrouter.get("/tget", async(req,res)=>{
     try{
         const gettanning = await Tranning.find()
         res.send(gettanning)
@@ -44,7 +44,7 @@ trouter.get("/tget", async(req,res)=>{
 // delete data router
 
 
-trouter.delete("tdelete/:id",async(req,res)=>{
+tranningrouter.delete("tdelete/:id",async(req,res)=>{
     try{
         const tdelete =await Tranning.findByIdAndDelete(req.params.id);
 
@@ -69,7 +69,7 @@ trouter.delete("tdelete/:id",async(req,res)=>{
 //update data router
 
 
-trouter.patch("/tupdate/:id",async(res,req)=>{
+tranningrouter.patch("/tupdate/:id",async(res,req)=>{
     const tupdate = await Tranning.findByIdAndUpdate(req.params.id,req.body,{new:true});
 try{
     tupdate.then((tupdate)=>{
@@ -90,4 +90,4 @@ catch(err){
 })
 
 
-module.exports = trouter
+module.exports = tranningrouter
